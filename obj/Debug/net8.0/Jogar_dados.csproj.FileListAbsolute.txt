@@ -12,3 +12,4 @@ C:\Users\geb1jvl\OneDrive - Bosch Group\usar_esse\repositorio\Csharp\Atividade\J
 C:\Users\geb1jvl\OneDrive - Bosch Group\usar_esse\repositorio\Csharp\Atividade\Jogar_dados\obj\Debug\net8.0\Jogar_dados.pdb
 C:\Users\geb1jvl\OneDrive - Bosch Group\usar_esse\repositorio\Csharp\Atividade\Jogar_dados\obj\Debug\net8.0\Jogar_dados.genruntimeconfig.cache
 C:\Users\geb1jvl\OneDrive - Bosch Group\usar_esse\repositorio\Csharp\Atividade\Jogar_dados\obj\Debug\net8.0\ref\Jogar_dados.dll
+C:\Users\geb1jvl\OneDrive - Bosch Group\usar_esse\repositorio\Csharp\Atividade\Jogar_dados\obj\Debug\net8.0\Jogar_dados.sourcelink.json

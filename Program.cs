@@ -20,10 +20,11 @@ while (true)
         continue;
     }
 
-    jogador1.Reset();
-    jogador2.Reset();
+    int totalRodadas = EscolherRodadas();
+    jogador1.Reset(totalRodadas);
+    jogador2.Reset(totalRodadas);
 
-    for (int i = 0; i < 3; i++)
+    for (int i = 0; i < totalRodadas; i++)
     {
         WriteLine($"\nRodada {i + 1}");
 
@@ -31,6 +32,7 @@ while (true)
         jogador2.Numeros[i] = Jogar(jogador2);
 
         VerificarRodada(jogador1, jogador2, i);
+        Placar(jogador1, jogador2);
     }
 
     MostrarResultadoFinal(jogador1, jogador2);
@@ -61,6 +63,22 @@ int Jogar(Jogador jogador)
     return numero;
 }
 
+int EscolherRodadas()
+{
+    while (true)
+    {
+        Write("Quantas rodadas deseja jogar (1 a 5)? ");
+        string input = ReadLine();
+
+        if (int.TryParse(input, out int rodadas) && rodadas >= 1 && rodadas <= 5)
+        {
+            return rodadas;
+        }
+
+        WriteLine("Digite um número válido entre 1 e 5!");
+    }
+}
+
 void VerificarRodada(Jogador j1, Jogador j2, int rodada)
 {
     if (j1.Numeros[rodada] > j2.Numeros[rodada])
@@ -79,12 +97,15 @@ void VerificarRodada(Jogador j1, Jogador j2, int rodada)
     }
 }
 
-void MostrarResultadoFinal(Jogador j1, Jogador j2)
+void Placar(Jogador j1, Jogador j2)
 {
-    WriteLine("\n===== RESULTADO FINAL =====");
+        WriteLine("\n===== PLACAR =====");
     WriteLine($"{j1.Nome}: {j1.Pontos} pontos");
     WriteLine($"{j2.Nome}: {j2.Pontos} pontos");
+}
 
+void MostrarResultadoFinal(Jogador j1, Jogador j2)
+{
     if (j1.Pontos > j2.Pontos)
         WriteLine($"\n{j1.Nome} é o grande vencedor!");
     else if (j2.Pontos > j1.Pontos)
@@ -119,9 +140,9 @@ public class Jogador
         return rnd.Next(1, 7);
     }
 
-    public void Reset()
+    public void Reset(int rodadas)
     {
-        Numeros = new int[3];
+        Numeros = new int[rodadas];
         Pontos = 0;
     }
 }
